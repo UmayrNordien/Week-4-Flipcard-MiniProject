@@ -6,12 +6,19 @@
     box-sizing: border-box;
 }
 .container{
-    position: relative;
     width: 30vw;
-    height: 90vh;
+    height: 80vh;
+    position: relative;
     margin: auto;
     perspective: 100px;
 }
+
+.container:hover .front {
+    transform:rotatez(360deg);
+    transition:3s;
+    opacity: 0.05;
+}
+
 /* .front and .back */
 .front, .back {
     position: absolute;                             /* makes the child more dependant on the parent */
@@ -32,7 +39,8 @@
     object-fit: cover;                          /* keeps quality of image while sizing it up */
 }
 .back {
-    background-color:rgb(204, 204, 204) ;                      
+    background-color:rgb(204, 204, 204) ; 
+    height:89vh;                    
     display: flex;                              
     flex-flow: column wrap;                     /* shortcut to wrap */
     justify-content: center;
@@ -54,10 +62,110 @@
     /* border */
     border: 2px solid slateblue;
     border-radius: 4em;
-
 }
-.container:hover .front {
+
+/* Next Fact link (animation) */
+.container2{
+    /* Shape */
+    border:none;
+    border-radius: 2rem;
+    position:relative;
+    width:100px;
+    height:100px;
+    margin:200px;
+    /* position */
+    float:right;
+    bottom:520px;
+    
+
+    background-color: slateblue;
+}
+
+.container2:hover{
+    animation: firstanimation 3s infinite;
+}
+
+@keyframes firstanimation{
+    0%{
+        background-color: pink;
+        transform: translateX(10);
+    }
+    30%{
+        transform: scale(0.4);
+    }
+    50%{
+        background-color: rgb(116, 196, 116);
+        transform: rotate(300deg);
+    }
+    100%{
+        background-color: pink;
+        transform: translateX(50);
+    }
+}
+
+
+
+/* NEXT PAGE */
+/* nextfacthtml */
+
+.container3{
+    width: 30vw;
+    height: 80vh;
+    position: relative;
+    margin: auto;
+    perspective: 100px;
+}
+
+.container3:hover .front2 {
     transform:rotatez(360deg);
     transition:3s;
     opacity: 0.05;
 }
+
+.front2, .back2{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* Profile */
+.front2{
+    z-index:20px;
+}
+.aus{
+    max-width: 100%;
+    border-radius: 6em;
+    object-fit: cover;
+}
+
+.back2 {
+    background-color:rgb(204, 204, 204) ; 
+    height:89vh;                    
+    display: flex;                              
+    flex-flow: column wrap;                     
+    justify-content: center;
+    align-items: center;
+    border-radius: 6em;
+}
+.back2 h2 {
+    color:slateblue;
+    font-size: 2em;
+    text-shadow: .2vw .2vw .3vw pink;         
+}
+.back2 p {
+    font-size: 2em;
+    background-color: pink;
+    width:50%;
+    margin: 2em 0;
+    padding: 20px;
+    text-align: center;
+    /* border */
+    border: 2px solid slateblue;
+    border-radius: 4em;
+}
+
