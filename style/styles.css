@@ -1,0 +1,63 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    position: relative;
+    width: 30vw;
+    height: 90vh;
+    margin: auto;
+    perspective: 100px;
+}
+/* .front and .back */
+.front, .back {
+    position: absolute;                             /* makes the child more dependant on the parent */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;  
+}
+/* Profile */
+.front {
+    z-index: 20;                                /* the higher the number the higher the priority, to bring something to the front */
+}
+.leaf {
+    max-width: 100%;                            /* setting the limbs, maximum size of the image, (makes image responsive?/ media query) */
+    border-radius: 6em;
+    object-fit: cover;                          /* keeps quality of image while sizing it up */
+}
+.back {
+    background-color:rgb(204, 204, 204) ;                      
+    display: flex;                              
+    flex-flow: column wrap;                     /* shortcut to wrap */
+    justify-content: center;
+    align-items: center;
+    border-radius: 6em;
+}
+.back h2 {
+    color:slateblue;
+    font-size: 2em;
+    text-shadow: .2vw .2vw .3vw pink;       /*  use inset to create a shadow within the element */   
+}
+.back p {
+    font-size: 2em;
+    background-color: pink;
+    width:50%;
+    margin: 2em 0;
+    padding: 20px;
+    text-align: center;
+    /* border */
+    border: 2px solid slateblue;
+    border-radius: 4em;
+
+}
+.container:hover .front {
+    transform:rotatez(360deg);
+    transition:3s;
+    opacity: 0.05;
+}
